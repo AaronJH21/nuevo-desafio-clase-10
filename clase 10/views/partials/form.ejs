@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %> 
+</head>
+<body>
+    <main>
+        <div class="jumbotron">
+            <h2>Ingrese los datos de tus libros</h2>
+            
+            <form method="POST" action="/form">
+                <div class="form-group">
+                  <label for="nombre">nombre</label>
+                  <input type="text" class="form-control" name="nombre" >
+                </div>
+                <div class="form-group">
+                    <label for="genero">genero</label>
+                    <input type="text" class="form-control" name="genero" >
+                  </div>
+                  <div class="form-group">
+                    <label for="año">año</label>
+                    <input type="text" class="form-control" name="año" >
+                  </div>
+
+                <button type="submit" class="btn btn-primary">sumar</button>
+                </form>
+        </div>
+        <div>
+            <% if(utiles.length){ %>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">nombre</th>
+                        <th scope="col">genero</th>
+                        <th scope="col">año</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% utiles.forEach((utile,index) => {  %> 
+
+                        <tr>
+                          <th scope="row"><%= index+ 1% %> </th>
+                          <td><%= utiles.nombre%> </td>
+                          <td><%= utiles.genero %> </td>
+                          <td><%= utiles.año %> </td>
+                        </tr> 
+                        <% }) %> 
+                      </tbody>
+                  </table>
+            <% }else{  %> No se encontraron datos 
+                <% } %>   
+        </div>
+    </main>
+    
+</body>
+</html>
